@@ -20,14 +20,12 @@ public class RegistrationServlet extends HttpServlet {
         String password = req.getParameter("password");
         InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
         Validation validation = new Validation();
-        if (name != null & login != null & password != null & !validation.isEmptyString(name,password,login)){
+
+        if (name != null & login != null & password != null & !validation.isEmptyString(name, password, login)) {
             inMemoryUserStorage.addUser(new User(name, login, password));
             resp.getWriter().println("User created");
         } else {
             resp.getWriter().println("User not created");
         }
-
-
-
     }
 }

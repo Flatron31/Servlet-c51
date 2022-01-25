@@ -11,4 +11,13 @@ public class InMemoryUserStorage {
     public void addUser(User user) {
         users.add(user);
     }
+
+    public User getUser(String login){
+        for (User user: users) {
+            if (login.equals(user.getLogin())){
+                return user;
+            }
+        }
+        return null;
+    }
 }

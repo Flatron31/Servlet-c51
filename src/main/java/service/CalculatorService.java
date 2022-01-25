@@ -6,6 +6,8 @@ import validation.Validation;
 import java.time.LocalDateTime;
 
 public class CalculatorService {
+
+    //перенести
     private String value1 = "";
     private String value2 = "";
     private String action = "";
