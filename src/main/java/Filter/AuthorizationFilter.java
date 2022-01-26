@@ -15,15 +15,11 @@ public class AuthorizationFilter extends HttpFilter {
         if (req.getMethod().equalsIgnoreCase("POST")) {
             String login = req.getParameter("login");
             String password = req.getParameter("password");
-//            HttpSession session = req.getSession();
             if (login == null || password == null) {
                 req.setAttribute("error", "invalid parameters");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
- //               session.setAttribute("error", "invalid parameters");
-            }
-            else if (login.equals("") || password.equals("")) {
+            } else if (login.equals("") || password.equals("")) {
                 req.setAttribute("error", "invalid parameters");
-//                session.setAttribute("error", "invalid parameters");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
             } else {
                 chain.doFilter(req, res);
@@ -31,6 +27,5 @@ public class AuthorizationFilter extends HttpFilter {
         } else {
             chain.doFilter(req, res);
         }
-
     }
 }

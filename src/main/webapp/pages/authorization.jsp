@@ -13,10 +13,14 @@
 </head>
 <body>
 <form action="/authorization" method="post">
-    <input type="text" name="login" placeholder="Login"> <p>${requestScope.msg1}</p>
-    <input type="text" name="password" placeholder="Password"> <p>${requestScope.msg}</p>
-    <p>${requestScope.error}</p>
+    <input type="text" name="login" placeholder="Login">
+    ${requestScope.message1}
+    <br>
+    <input type="text" name="password" placeholder="Password">
+    ${requestScope.message}
+    <br>
     <button>Submit</button>
+    ${requestScope.error}
 </form>
 
 </body>
