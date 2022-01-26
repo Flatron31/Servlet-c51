@@ -32,7 +32,7 @@ public class AuthorizationServlet extends HttpServlet {
                 resp.sendRedirect("/calculator");
             } else {
                 req.setAttribute("msg", "wrong password");
-
+//                req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("msg1", "wrong password");
