@@ -19,6 +19,7 @@ public class CalculatorService {
     }
 
     public String getResultAction(String value1, String value2, String action) {
+
         String result = "";
         if (validation.isNull(value1, value2, action)) {
             return "Value is null";
