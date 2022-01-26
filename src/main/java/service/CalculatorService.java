@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 public class CalculatorService {
 
     //перенести
-    private String value1 = "";
-    private String value2 = "";
-    private String action = "";
+    private String value1;
+    private String value2;
+    private String action;
     private LocalDateTime dateAdded = LocalDateTime.now();
     private CalculatorHistory calculatorHistory = new CalculatorHistory();
     private Validation validation = new Validation();

@@ -16,22 +16,27 @@ import java.io.IOException;
 public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         UserService userService = new UserService();
         User user = userService.getUser(login);
         HttpSession session = req.getSession();
-
-        if (user != null) {
+        if (userService.isCheckUser(user)) {
             if (password.equals(user.getPassword())){
-                session.setAttribute("login", login);
+               session.setAttribute("login", login);
+                resp.sendRedirect("/calculator");
             } else {
-                System.out.println("пароля нету");
+                req.setAttribute("msg", "wrong password");
+
             }
         } else {
-            System.out.println("нету челика");
+            req.setAttribute("msg1", "wrong password");
         }
-
     }
 }
 

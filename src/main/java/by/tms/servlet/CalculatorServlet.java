@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/calculator")
@@ -16,20 +15,8 @@ public class CalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String value1 = req.getParameter("value1");
-        String value2 = req.getParameter("value2");
-        String action = req.getParameter("action");
-        resp.getWriter().println(calculatorService.getResultAction(value1, value2, action));
-
-
-
-
-
-
-//        `
+        req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
 ////////это в фильтр
-//
-//
 //        HttpSession session = req.getSession();
 //        String login = req.getParameter("login");
 //        if (user != null)
@@ -37,8 +24,15 @@ public class CalculatorServlet extends HttpServlet {
 //                chain.doFilter(req, res);
 //        } else {
 //            System.out.println(" челик не реганулся");
-//        }`
+//        }
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String value1 = req.getParameter("value1");
+        String value2 = req.getParameter("value2");
+        String action = req.getParameter("action");
 
+        resp.getWriter().println(calculatorService.getResultAction(value1, value2, action));
     }
 }

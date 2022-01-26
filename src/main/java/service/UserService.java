@@ -10,4 +10,11 @@ public class UserService {
         return inMemoryUserStorage.getUser(login);
     }
 
+    public boolean isCheckUser(User user){
+        if (user == null){
+            return false;
+        }
+        return true;
+    }
+
 }
