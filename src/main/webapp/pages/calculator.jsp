@@ -9,19 +9,20 @@
 <html>
 <head>
     <title>Calculator</title>
+
 </head>
 <body>
 <form action="/calculator" method="post">
-    <input type="text" value1="value1" placeholder="Value1">
-    <br>
+    <input type="text" name="value1" placeholder="Value1">
     <input type="text" name="action" placeholder="Action">
-    <br>
     <input type="text" name="value2" placeholder="Value1">
     <br>
-    <input type="text" name="" placeholder="Name">
+    ${requestScope.messageNull}
+    ${requestScope.messageEmpty}
+    ${requestScope.messageNaN}
+    ${requestScope.result}
     <br>
-    <button>Submit</button>
-
+    <button>Result</button>
 </form>
 </body>
 </html>

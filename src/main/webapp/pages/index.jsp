@@ -13,6 +13,7 @@
 <body>
 <a href="/registration">Registration</a>
 <a href="/authorization">Authorization</a>
+<a href="/calculator">Calculator</a>
 <a href="/logout">Logout</a>
 </body>
 </html>

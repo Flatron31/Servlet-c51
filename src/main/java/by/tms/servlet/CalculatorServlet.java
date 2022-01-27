@@ -9,22 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/calculator")
+@WebServlet(urlPatterns = "/calculator", name = "CalculatorServlet")
 public class CalculatorServlet extends HttpServlet {
     private CalculatorService calculatorService = new CalculatorService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
-////////это в фильтр
-//        HttpSession session = req.getSession();
-//        String login = req.getParameter("login");
-//        if (user != null)
-//            if(session.getAttribute(login) != null){
-//                chain.doFilter(req, res);
-//        } else {
-//            System.out.println(" челик не реганулся");
-//        }
     }
 
     @Override
@@ -32,7 +23,7 @@ public class CalculatorServlet extends HttpServlet {
         String value1 = req.getParameter("value1");
         String value2 = req.getParameter("value2");
         String action = req.getParameter("action");
-
-        resp.getWriter().println(calculatorService.getResultAction(value1, value2, action));
+        req.setAttribute("result", calculatorService.getResultAction(value1, value2, action));
+        req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
     }
 }
