@@ -2,7 +2,6 @@ package by.tms.servlet;
 
 import entity.User;
 import history.InMemoryUserStorage;
-import validation.Validation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/registration")
+@WebServlet(urlPatterns = "/registration", name = "RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,12 +34,17 @@ public class RegistrationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
-        Validation validation = new Validation();
-        if (!validation.isNull(name, password, login) & !validation.isEmptyString(name, password, login)) {
-            inMemoryUserStorage.addUser(new User(name, login, password));
-            resp.sendRedirect("/");
-        } else {
-            resp.getWriter().println("User not created");
-        }
+        inMemoryUserStorage.addUser(new User(name, login, password));
+        resp.sendRedirect("/");
     }
+
+
+//        Validation validation = new Validation();
+//        if (!validation.isNull(name, password, login) & !validation.isEmptyString(name, password, login)) {
+//            inMemoryUserStorage.addUser(new User(name, login, password));
+//            resp.sendRedirect("/");
+//        } else {
+//            req.setAttribute("messageErrorRegistration", "User not created");
+//            req.getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+//        }
 }

@@ -20,6 +20,7 @@
     <input type="text" name="name" placeholder="Name">
     <br>
     <button>Submit</button>
+    ${requestScope.messageErrorRegistration}
 </form>
 
 </body>
