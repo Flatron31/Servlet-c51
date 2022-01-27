@@ -14,15 +14,19 @@
 <body>
 <form action="/calculator" method="post">
     <input type="text" name="value1" placeholder="Value1">
+    <p>enter operation:sum, div, dif, mult</p>
     <input type="text" name="action" placeholder="Action">
+    <br>
     <input type="text" name="value2" placeholder="Value1">
     <br>
     ${requestScope.messageNull}
     ${requestScope.messageEmpty}
     ${requestScope.messageNaN}
-    ${requestScope.result}
     <br>
-    <button>Result</button>
+    <button>Result</button> ${requestScope.result}
+    <br>
+    <a href="/history_calculator">History</a>
+
 </form>
 </body>
 </html>

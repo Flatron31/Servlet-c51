@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/history_calculator")
@@ -15,6 +16,8 @@ public class HistoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println(calculatorHistory.printHistory());
+        req.getServletContext().getRequestDispatcher("/pages/history.jsp").forward(req, resp);
+        HttpSession session = req.getSession();
+        session.setAttribute("history", calculatorHistory.printHistory());
     }
 }

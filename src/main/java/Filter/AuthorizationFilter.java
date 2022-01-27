@@ -16,10 +16,10 @@ public class AuthorizationFilter extends HttpFilter {
             String login = req.getParameter("login");
             String password = req.getParameter("password");
             if (login == null || password == null) {
-                req.setAttribute("error", "invalid parameters");
+                req.setAttribute("error", "Invalid parameters");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
             } else if (login.equals("") || password.equals("")) {
-                req.setAttribute("error", "invalid parameters");
+                req.setAttribute("error", "Invalid parameters");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
             } else {
                 chain.doFilter(req, res);

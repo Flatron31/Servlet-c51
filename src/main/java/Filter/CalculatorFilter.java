@@ -28,8 +28,10 @@ public class CalculatorFilter extends HttpFilter {
            } else if (!validation.isNumber(value1) || !validation.isNumber(value2)){
                req.setAttribute("messageNaN","NaN");
                req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, res);
+           } else {
+               chain.doFilter(req, res);
            }
-       } else {
+        } else {
             chain.doFilter(req, res);
         }
 

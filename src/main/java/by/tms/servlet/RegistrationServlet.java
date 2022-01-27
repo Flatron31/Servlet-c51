@@ -37,14 +37,4 @@ public class RegistrationServlet extends HttpServlet {
         inMemoryUserStorage.addUser(new User(name, login, password));
         resp.sendRedirect("/");
     }
-
-
-//        Validation validation = new Validation();
-//        if (!validation.isNull(name, password, login) & !validation.isEmptyString(name, password, login)) {
-//            inMemoryUserStorage.addUser(new User(name, login, password));
-//            resp.sendRedirect("/");
-//        } else {
-//            req.setAttribute("messageErrorRegistration", "User not created");
-//            req.getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
-//        }
 }

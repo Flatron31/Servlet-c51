@@ -31,7 +31,7 @@ public class AuthorizationServlet extends HttpServlet {
                 session.setAttribute("login", login);
                 resp.sendRedirect("/calculator");
             } else {
-                req.setAttribute("message", "wrong password");
+                req.setAttribute("message", "Wrong password");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
             }
         } else {

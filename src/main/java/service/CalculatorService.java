@@ -6,29 +6,12 @@ import validation.Validation;
 import java.time.LocalDateTime;
 
 public class CalculatorService {
-    //перенести
-    private String value1;
-    private String value2;
-    private String action;
     private LocalDateTime dateAdded = LocalDateTime.now();
     private CalculatorHistory calculatorHistory = new CalculatorHistory();
     private Validation validation = new Validation();
 
     public String getResultAction(String value1, String value2, String action) {
-
         String result = "";
-//        if (validation.isNull(value1, value2, action)) {
-//            return "Value is null";
-//        }
-//        if (validation.isEmptyString(value1, value2, action)) {
-//            return "Value is empty";
-//        }
-//        if (!validation.isNumber(value1)) {
-//            return "NaN";
-//        }
-//        if (!validation.isNumber(value2)) {
-//            return "NaN";
-//        }
         double doubleValue1 = Double.parseDouble(value1);
         double doubleValue2 = Double.parseDouble(value2);
 
