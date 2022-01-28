@@ -18,18 +18,16 @@ public class CalculatorFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpSession session = req.getSession();
-        String login =(String) session.getAttribute("login");
+        String login = (String) session.getAttribute("login");
         UserService userService = new UserService();
         User user = userService.getUser(login);
 
-        if (req.getMethod().equalsIgnoreCase("GET")){
+        if (req.getMethod().equalsIgnoreCase("GET")) {
             if (user == null || session.getAttribute("login") == null) {
                 req.setAttribute("messageUserError", "User is not authorized");
                 req.getServletContext().getRequestDispatcher("/pages/infoError.jsp").forward(req, res);
             }
         }
-
-
         if (req.getMethod().equalsIgnoreCase("POST")) {
             Validation validation = new Validation();
             String value1 = req.getParameter("value1");
@@ -50,7 +48,6 @@ public class CalculatorFilter extends HttpFilter {
                 }
             }
         }
-
         chain.doFilter(req, res);
     }
 }

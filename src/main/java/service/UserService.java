@@ -1,10 +1,10 @@
 package service;
 
 import entity.User;
-import history.InMemoryUserStorage;
+import history.UserStorage;
 
 public class UserService {
-    private InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
+    private UserStorage inMemoryUserStorage = new UserStorage();
 
     public User getUser(String login) {
         return inMemoryUserStorage.getUser(login);

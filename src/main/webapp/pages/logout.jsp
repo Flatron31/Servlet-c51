@@ -14,9 +14,8 @@
 <a href="/">Home</a>
 <br>
 
+<p>${requestScope.messageLogout}</p>
 
-<p>History:</p>
-${sessionScope.history}
 
 </body>
 </html>

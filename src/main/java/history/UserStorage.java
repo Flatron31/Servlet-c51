@@ -5,7 +5,7 @@ import entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryUserStorage {
+public class UserStorage {
     private static final List<User> users = new ArrayList<>();
 
     public void addUser(User user) {
