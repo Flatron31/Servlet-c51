@@ -11,6 +11,10 @@
     <title>Logout</title>
 </head>
 <body>
+<a href="/">Home</a>
+<br>
+
+
 <p>History:</p>
 ${sessionScope.history}
 

@@ -12,6 +12,8 @@
 
 </head>
 <body>
+<a href="/">Home</a>
+<br>
 <form action="/calculator" method="post">
     <input type="text" name="value1" placeholder="Value1">
     <p>enter operation:sum, div, dif, mult</p>

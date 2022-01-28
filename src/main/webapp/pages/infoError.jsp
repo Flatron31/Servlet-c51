@@ -11,6 +11,8 @@
     <title>InfoError</title>
 </head>
 <body>
+<a href="/">Home</a>
+<br>
 <p>${requestScope.messageUserError}</p>
 
 </body>
