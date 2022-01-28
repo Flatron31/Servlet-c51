@@ -16,8 +16,8 @@ public class HistoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/pages/history.jsp").forward(req, resp);
         HttpSession session = req.getSession();
         session.setAttribute("history", calculatorHistory.printHistory());
+        req.getServletContext().getRequestDispatcher("/pages/history.jsp").forward(req, resp);
     }
 }

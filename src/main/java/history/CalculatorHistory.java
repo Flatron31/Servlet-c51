@@ -15,7 +15,7 @@ public class CalculatorHistory {
             return "History is empty";
         } else {
             for (String item : historyCalculator) {
-                result += "Result = " + item + "\n";
+                result += "Result = " + item + "<br>";
             }
         }
         return result;
