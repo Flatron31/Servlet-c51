@@ -14,7 +14,7 @@
 <a href="/">Home</a>
 <br>
     <p>History:</p>
-    ${sessionScope.history}
+    ${requestScope.history}
 
 </body>
 </html>
