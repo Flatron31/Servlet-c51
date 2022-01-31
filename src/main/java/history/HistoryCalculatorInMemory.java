@@ -2,7 +2,7 @@ package history;
 
 import java.util.ArrayList;
 
-public class CalculatorHistory {
+public class HistoryCalculatorInMemory {
     public static ArrayList<String> historyCalculator = new ArrayList<>();
 
     public void addElementHistory(String result) {

@@ -1,13 +1,13 @@
 package service;
 
-import history.CalculatorHistory;
+import history.HistoryCalculatorInMemory;
 import validation.Validation;
 
 import java.time.LocalDateTime;
 
 public class CalculatorService {
     private LocalDateTime dateAdded = LocalDateTime.now();
-    private CalculatorHistory calculatorHistory = new CalculatorHistory();
+    private HistoryCalculatorInMemory calculatorHistory = new HistoryCalculatorInMemory();
     private Validation validation = new Validation();
 
     public String getResultAction(String value1, String value2, String action) {
