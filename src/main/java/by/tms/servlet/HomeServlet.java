@@ -1,5 +1,7 @@
 package by.tms.servlet;
 
+import entity.Constants;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,6 @@ import java.io.IOException;
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/pages/index.jsp").forward(req,resp);
+        req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req,resp);
     }
 }

@@ -1,5 +1,6 @@
 package Filter;
 
+import entity.Constants;
 import entity.User;
 import validation.Validation;
 
@@ -24,7 +25,7 @@ public class RegistrationFilter extends HttpFilter {
                 chain.doFilter(req, res);
             } else {
                 req.setAttribute("messageErrorRegistration", "User not created");
-                req.getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.REGISTRATION_JSP).forward(req, res);
             }
         } else {
             chain.doFilter(req, res);

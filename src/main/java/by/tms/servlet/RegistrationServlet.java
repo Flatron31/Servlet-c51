@@ -1,5 +1,6 @@
 package by.tms.servlet;
 
+import entity.Constants;
 import entity.User;
 import history.UserStorageInMemory;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.REGISTRATION_JSP).forward(req, resp);
 //        String name = req.getParameter("name");
 //        String login = req.getParameter("login");
 //        String password = req.getParameter("password");

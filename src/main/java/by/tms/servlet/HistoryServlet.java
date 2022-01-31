@@ -1,5 +1,7 @@
 package by.tms.servlet;
 
+import com.sun.org.apache.bcel.internal.classfile.Constant;
+import entity.Constants;
 import history.HistoryCalculatorInMemory;
 
 import javax.servlet.ServletException;
@@ -16,6 +18,6 @@ public class HistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("history", calculatorHistory.printHistory());
-        req.getServletContext().getRequestDispatcher("/pages/history.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.HISTORY_JSP).forward(req, resp);
     }
 }

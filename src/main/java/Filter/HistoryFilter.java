@@ -1,5 +1,6 @@
 package Filter;
 
+import entity.Constants;
 import entity.User;
 import service.UserService;
 
@@ -24,7 +25,7 @@ public class HistoryFilter extends HttpFilter {
         if (req.getMethod().equalsIgnoreCase("GET")) {
             if (user.getAuthorizationSessionID() == null | !user.getAuthorizationSessionID().equals(session.getId())) {
                 req.setAttribute("messageUserError", "User is not authorized");
-                req.getServletContext().getRequestDispatcher("/pages/infoError.jsp").forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, res);
             }
         }
         chain.doFilter(req, res);

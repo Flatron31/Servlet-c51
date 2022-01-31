@@ -1,5 +1,6 @@
 package Filter;
 
+import entity.Constants;
 import entity.User;
 import service.UserService;
 import validation.Validation;
@@ -25,7 +26,7 @@ public class CalculatorFilter extends HttpFilter {
         if (req.getMethod().equalsIgnoreCase("GET")) {
              if (user.getAuthorizationSessionID() == null | !user.getAuthorizationSessionID().equals(session.getId()) ) {
                 req.setAttribute("messageUserError", "User is not authorized");
-                req.getServletContext().getRequestDispatcher("/pages/infoError.jsp").forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, res);
             }
         }
         if (req.getMethod().equalsIgnoreCase("POST")) {
@@ -36,15 +37,15 @@ public class CalculatorFilter extends HttpFilter {
             if (req.getMethod().equals("POST")) {
                 if (validation.isNull(value1, value2, action)) {
                     req.setAttribute("messageNull", "Value is null");
-                    req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, res);
+                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
                 }
                 if (validation.isEmptyString(value1, value2, action)) {
                     req.setAttribute("messageEmpty", "Value is empty");
-                    req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, res);
+                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
                 }
                 if (!validation.isNumber(value1) || !validation.isNumber(value2)) {
                     req.setAttribute("messageNaN", "NaN");
-                    req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, res);
+                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
                 }
             }
         }

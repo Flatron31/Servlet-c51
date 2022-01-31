@@ -1,5 +1,6 @@
 package by.tms.servlet;
 
+import entity.Constants;
 import entity.User;
 import service.UserService;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, resp);
     }
 
     @Override
@@ -33,11 +34,11 @@ public class AuthorizationServlet extends HttpServlet {
                 resp.sendRedirect("/");
             } else {
                 req.setAttribute("message", "Wrong password");
-                req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
+                req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, resp);
             }
         } else {
             req.setAttribute("message1", "User is not found");
-            req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);
+            req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, resp);
         }
     }
 }

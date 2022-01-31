@@ -1,5 +1,6 @@
 package by.tms.servlet;
 
+import entity.Constants;
 import service.CalculatorService;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,8 @@ public class CalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
+
     }
 
     @Override
@@ -24,6 +26,6 @@ public class CalculatorServlet extends HttpServlet {
         String value2 = req.getParameter("value2");
         String action = req.getParameter("action");
         req.setAttribute("result", calculatorService.getResultAction(value1, value2, action));
-        req.getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
     }
 }

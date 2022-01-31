@@ -1,5 +1,7 @@
 package Filter;
 
+import entity.Constants;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebFilter;
@@ -17,10 +19,10 @@ public class AuthorizationFilter extends HttpFilter {
             String password = req.getParameter("password");
             if (login == null || password == null) {
                 req.setAttribute("error", "Invalid parameters");
-                req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, res);
             } else if (login.equals("") || password.equals("")) {
                 req.setAttribute("error", "Invalid parameters");
-                req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, res);
             } else {
                 chain.doFilter(req, res);
             }
