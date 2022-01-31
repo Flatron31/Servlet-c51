@@ -29,8 +29,8 @@ public class AuthorizationServlet extends HttpServlet {
         if (userService.isCheckUser(user)) {
             if (password.equals(user.getPassword())) {
                 session.setAttribute("login", login);
-                session.setAttribute("authorization", "1");
-                resp.sendRedirect("/calculator");
+                user.setAuthorizationSessionID(session.getId());
+                resp.sendRedirect("/");
             } else {
                 req.setAttribute("message", "Wrong password");
                 req.getServletContext().getRequestDispatcher("/pages/authorization.jsp").forward(req, resp);

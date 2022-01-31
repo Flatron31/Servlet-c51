@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/registration", name = "RegistrationServlet")
@@ -34,7 +35,8 @@ public class RegistrationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         UserStorage inMemoryUserStorage = new UserStorage();
-        inMemoryUserStorage.addUser(new User(name, login, password));
+        HttpSession session = req.getSession();
+        inMemoryUserStorage.addUser(new User(name, login, password, session.getId()));
         resp.sendRedirect("/");
     }
 }

@@ -4,11 +4,30 @@ public class User {
     private String login;
     private String name;
     private String password;
+    private String authorizationSessionID;
+
+    public User() {
+    }
+
+    public User(String login, String name, String password, String authorizationSessionID) {
+        this.login = login;
+        this.name = name;
+        this.password = password;
+        this.authorizationSessionID = authorizationSessionID;
+    }
+
+    public void setAuthorizationSessionID(String authorizationSessionID) {
+        this.authorizationSessionID = authorizationSessionID;
+    }
 
     public User(String login, String name, String password) {
         this.login = login;
         this.name = name;
         this.password = password;
+    }
+
+    public String getAuthorizationSessionID() {
+        return authorizationSessionID;
     }
 
     public String getLogin() {

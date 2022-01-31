@@ -7,10 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/history_calculator")
+@WebServlet(urlPatterns = "/history_calculator", name = "HistoryServlet")
 public class HistoryServlet extends HttpServlet {
     private CalculatorHistory calculatorHistory = new CalculatorHistory();
 
