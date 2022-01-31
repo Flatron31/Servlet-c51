@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/calculator", name = "CalculatorServlet")
+@WebServlet(urlPatterns = Constants.CALCULATOR_LINK, name = "CalculatorServlet")
 public class CalculatorServlet extends HttpServlet {
     private CalculatorService calculatorService = new CalculatorService();
 

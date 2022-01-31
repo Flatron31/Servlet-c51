@@ -1,6 +1,5 @@
 package by.tms.servlet;
 
-import com.sun.org.apache.bcel.internal.classfile.Constant;
 import entity.Constants;
 import history.HistoryCalculatorInMemory;
 
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/history_calculator", name = "HistoryServlet")
+@WebServlet(urlPatterns = Constants.HISTORY_CALCULATOR_LINK, name = "HistoryServlet")
 public class HistoryServlet extends HttpServlet {
     private HistoryCalculatorInMemory calculatorHistory = new HistoryCalculatorInMemory();
 

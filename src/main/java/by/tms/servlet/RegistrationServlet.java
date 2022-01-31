@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/registration", name = "RegistrationServlet")
+@WebServlet(urlPatterns = Constants.REGISTRATION_LINK, name = "RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +38,6 @@ public class RegistrationServlet extends HttpServlet {
         UserStorageInMemory UserStorageInMemory = new UserStorageInMemory();
         HttpSession session = req.getSession();
         UserStorageInMemory.addUser(new User(name, login, password, session.getId()));
-        resp.sendRedirect("/");
+        resp.sendRedirect(Constants.HOME_LINK);
     }
 }

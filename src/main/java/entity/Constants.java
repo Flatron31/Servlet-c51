@@ -9,5 +9,13 @@ public class Constants {
     public static final String LOGOUT_JSP = "/pages/logout.jsp";
     public static final String INFOERROR_JSP = "/pages/infoError.jsp";
 
+    public static final String AUTHORIZATION_LINK = "/authorization";
+    public static final String CALCULATOR_LINK = "/calculator";
+    public static final String HISTORY_CALCULATOR_LINK = "/history_calculator";
+    public static final String HOME_LINK = "/";
+    public static final String LOGOUT_LINK = "/logout";
+    public static final String REGISTRATION_LINK = "/registration";
+
+
 
 }

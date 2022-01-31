@@ -1,7 +1,6 @@
 package Filter;
 
 import entity.Constants;
-import entity.User;
 import validation.Validation;
 
 import javax.servlet.FilterChain;

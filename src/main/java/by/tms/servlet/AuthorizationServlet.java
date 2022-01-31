@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns = "/authorization", name = "AuthorizationServlet")
+@WebServlet(urlPatterns = Constants.AUTHORIZATION_LINK, name = "AuthorizationServlet")
 public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class AuthorizationServlet extends HttpServlet {
             if (password.equals(user.getPassword())) {
                 session.setAttribute("login", login);
                 user.setAuthorizationSessionID(session.getId());
-                resp.sendRedirect("/");
+                resp.sendRedirect(Constants.HOME_LINK);
             } else {
                 req.setAttribute("message", "Wrong password");
                 req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, resp);
