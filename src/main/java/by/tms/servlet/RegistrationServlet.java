@@ -34,9 +34,9 @@ public class RegistrationServlet extends HttpServlet {
         String name = req.getParameter("name");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        UserStorageInMemory inMemoryUserStorage = new UserStorageInMemory();
+        UserStorageInMemory UserStorageInMemory = new UserStorageInMemory();
         HttpSession session = req.getSession();
-        inMemoryUserStorage.addUser(new User(name, login, password, session.getId()));
+        UserStorageInMemory.addUser(new User(name, login, password, session.getId()));
         resp.sendRedirect("/");
     }
 }
