@@ -28,24 +28,24 @@ public class CalculatorFilter extends HttpFilter {
                 req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, res);
             }
         }
+
         if (req.getMethod().equalsIgnoreCase("POST")) {
             Validation validation = new Validation();
             String value1 = req.getParameter("value1");
             String value2 = req.getParameter("value2");
             String action = req.getParameter("action");
-            if (req.getMethod().equals("POST")) {
-                if (validation.isNull(value1, value2, action)) {
-                    req.setAttribute("messageNull", "Value is null");
-                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
-                }
-                if (validation.isEmptyString(value1, value2, action)) {
-                    req.setAttribute("messageEmpty", "Value is empty");
-                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
-                }
-                if (!validation.isNumber(value1) || !validation.isNumber(value2)) {
-                    req.setAttribute("messageNaN", "NaN");
-                    req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
-                }
+
+            if (validation.isNull(value1, value2, action)) {
+                req.setAttribute("messageNull", "Value is null");
+                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
+            }
+            if (validation.isEmptyString(value1, value2, action)) {
+                req.setAttribute("messageEmpty", "Value is empty");
+                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
+            }
+            if (!validation.isNumber(value1) || !validation.isNumber(value2)) {
+                req.setAttribute("messageNaN", "NaN");
+                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
             }
         }
         chain.doFilter(req, res);
