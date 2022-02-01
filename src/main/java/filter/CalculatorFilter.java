@@ -1,4 +1,4 @@
-package Filter;
+package filter;
 
 import entity.Constants;
 import entity.User;
@@ -22,7 +22,6 @@ public class CalculatorFilter extends HttpFilter {
         String login = (String) session.getAttribute("login");
         UserService userService = new UserService();
         User user = userService.getUser(login);
-
         if (req.getMethod().equalsIgnoreCase("GET")) {
              if (user.getAuthorizationSessionID() == null | !user.getAuthorizationSessionID().equals(session.getId()) ) {
                 req.setAttribute("messageUserError", "User is not authorized");

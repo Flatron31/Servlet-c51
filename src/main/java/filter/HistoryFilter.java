@@ -1,4 +1,4 @@
-package Filter;
+package filter;
 
 import entity.Constants;
 import entity.User;
