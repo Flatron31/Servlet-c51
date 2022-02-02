@@ -2,7 +2,7 @@ package by.tms.servlet;
 
 import entity.Constants;
 import entity.User;
-import history.UserStorageInMemory;
+import history.InMemoryUserStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,9 +35,9 @@ public class RegistrationServlet extends HttpServlet {
         String name = req.getParameter("name");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        UserStorageInMemory UserStorageInMemory = new UserStorageInMemory();
+        InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
         HttpSession session = req.getSession();
-        UserStorageInMemory.addUser(new User(name, login, password, session.getId()));
+        inMemoryUserStorage.addUser(new User(name, login, password, session.getId()));
         resp.sendRedirect(Constants.HOME_LINK);
     }
 }

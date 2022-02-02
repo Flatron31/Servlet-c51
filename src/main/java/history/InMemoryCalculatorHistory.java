@@ -1,19 +1,18 @@
 package history;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HistoryCalculatorInMemory {
+public class InMemoryCalculatorHistory {
 //    public static ArrayList<String> historyCalculator = new ArrayList<>();
-    public static HashMap<String, String> historyCalculator1 = new HashMap<>();
+    public static HashMap<String, String> calculatorHistory = new HashMap<>();
 
     public void addElementHistory1(String login, String result){
-        if (historyCalculator1.containsKey(login)){
-            String oldHistory = historyCalculator1.get(login);
+        if (calculatorHistory.containsKey(login)){
+            String oldHistory = calculatorHistory.get(login);
             String newHistory = oldHistory + result + "<br>";
-            historyCalculator1.put(login, newHistory);
+            calculatorHistory.put(login, newHistory);
         } else {
-            historyCalculator1.put(login, result);
+            calculatorHistory.put(login, result);
         }
     }
 
@@ -34,8 +33,8 @@ public class HistoryCalculatorInMemory {
 //    }
 
     public String printHistory(String login) {
-        if (historyCalculator1.containsKey(login)){
-            return historyCalculator1.get(login);
+        if (calculatorHistory.containsKey(login)){
+            return calculatorHistory.get(login);
         }
         return "History is empty";
     }

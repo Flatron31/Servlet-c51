@@ -2,16 +2,16 @@ package entity;
 
 public class User {
     private String login;
-    private String name;
     private String password;
+    private String name;
     private String authorizationSessionID;
 
     public User() {
     }
 
-    public User(String login, String name, String password, String authorizationSessionID) {
-        this.login = login;
+    public User(String name, String login, String password, String authorizationSessionID) {
         this.name = name;
+        this.login = login;
         this.password = password;
         this.authorizationSessionID = authorizationSessionID;
     }
@@ -20,9 +20,9 @@ public class User {
         this.authorizationSessionID = authorizationSessionID;
     }
 
-    public User(String login, String name, String password) {
-        this.login = login;
+    public User(String name, String login, String password) {
         this.name = name;
+        this.login = login;
         this.password = password;
     }
 

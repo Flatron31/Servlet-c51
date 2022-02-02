@@ -14,7 +14,7 @@
 <a href="/">Home</a>
 <br>
 <form action="/calculator" method="post">
-    <input type="text" name="value1" placeholder="Value1" pattern="[\d+]" required>
+    <input type="text" name="value1" placeholder="Value1" pattern="[+-]?([0-9]*[.])?[0-9]+" required>
     <select name="operation" required>
         <option disabled selected>Choose operation</option>
         <option value="sum">+</option>
@@ -22,7 +22,7 @@
         <option value="dif">-</option>
         <option value="mult">*</option>
     </select>
-    <input type="text" name="value2" placeholder="Value1" pattern="[\d+]" required>
+    <input type="text" name="value2" placeholder="Value1" pattern="[+-]?([0-9]*[.])?[0-9]+" required>
     ${requestScope.messageNull}
     ${requestScope.messageEmpty}
     ${requestScope.messageNaN}

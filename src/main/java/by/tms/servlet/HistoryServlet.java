@@ -1,7 +1,7 @@
 package by.tms.servlet;
 
 import entity.Constants;
-import history.HistoryCalculatorInMemory;
+import history.InMemoryCalculatorHistory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = Constants.HISTORY_CALCULATOR_LINK, name = "HistoryServlet")
 public class HistoryServlet extends HttpServlet {
-    private HistoryCalculatorInMemory calculatorHistory = new HistoryCalculatorInMemory();
+    private InMemoryCalculatorHistory calculatorHistory = new InMemoryCalculatorHistory();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
