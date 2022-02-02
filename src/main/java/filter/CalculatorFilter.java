@@ -33,7 +33,7 @@ public class CalculatorFilter extends HttpFilter {
             Validation validation = new Validation();
             String value1 = req.getParameter("value1");
             String value2 = req.getParameter("value2");
-            String action = req.getParameter("action");
+            String action = req.getParameter("operation");
 
             if (validation.isNull(value1, value2, action)) {
                 req.setAttribute("messageNull", "Value is null");

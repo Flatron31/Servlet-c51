@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = Constants.CALCULATOR_LINK, name = "CalculatorServlet")
@@ -24,8 +25,11 @@ public class CalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String value1 = req.getParameter("value1");
         String value2 = req.getParameter("value2");
-        String action = req.getParameter("action");
-        req.setAttribute("result", calculatorService.getResultAction(value1, value2, action));
+        String operation = req.getParameter("operation");
+        HttpSession session = req.getSession();
+        String login = (String) session.getAttribute("login");
+        String result = calculatorService.getResultAction(value1, value2, operation, login);
+        req.setAttribute("result", result);
         req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
     }
 }

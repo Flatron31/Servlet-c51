@@ -1,6 +1,6 @@
 package entity;
 
-public class Constants {
+public final class Constants {
     public static final String AUTHORIZATION_JSP = "/pages/authorization.jsp";
     public static final String REGISTRATION_JSP = "/pages/registration.jsp";
     public static final String CALCULATOR_JSP = "/pages/calculator.jsp";
@@ -15,7 +15,4 @@ public class Constants {
     public static final String HOME_LINK = "/";
     public static final String LOGOUT_LINK = "/logout";
     public static final String REGISTRATION_LINK = "/registration";
-
-
-
 }

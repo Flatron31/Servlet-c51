@@ -9,18 +9,20 @@
 <html>
 <head>
     <title>Calculator</title>
-
 </head>
 <body>
 <a href="/">Home</a>
 <br>
 <form action="/calculator" method="post">
-    <input type="text" name="value1" placeholder="Value1">
-    <p>enter operation:sum, div, dif, mult</p>
-    <input type="text" name="action" placeholder="Action">
-    <br>
-    <input type="text" name="value2" placeholder="Value1">
-    <br>
+    <input type="text" name="value1" placeholder="Value1" pattern="[\d+]" required>
+    <select name="operation" required>
+        <option disabled selected>Choose operation</option>
+        <option value="sum">+</option>
+        <option value="div">/</option>
+        <option value="dif">-</option>
+        <option value="mult">*</option>
+    </select>
+    <input type="text" name="value2" placeholder="Value1" pattern="[\d+]" required>
     ${requestScope.messageNull}
     ${requestScope.messageEmpty}
     ${requestScope.messageNaN}
