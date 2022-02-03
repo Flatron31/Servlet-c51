@@ -1,7 +1,7 @@
 package service;
 
 import entity.User;
-import history.InMemoryUserStorage;
+import storage.InMemoryUserStorage;
 
 public class UserService {
     private InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();

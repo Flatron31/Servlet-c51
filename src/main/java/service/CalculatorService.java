@@ -1,6 +1,6 @@
 package service;
 
-import history.InMemoryCalculatorHistory;
+import storage.InMemoryCalculatorHistory;
 
 import java.time.LocalDateTime;
 

@@ -2,7 +2,7 @@ package by.tms.servlet.Web.servlet;
 
 import by.tms.servlet.Web.Constants;
 import entity.User;
-import history.InMemoryUserStorage;
+import storage.InMemoryUserStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

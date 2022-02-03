@@ -1,4 +1,4 @@
-package history;
+package storage;
 
 import entity.User;
 

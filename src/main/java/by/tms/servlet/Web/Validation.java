@@ -1,4 +1,4 @@
-package validation;
+package by.tms.servlet.Web;
 
 public class Validation {
 

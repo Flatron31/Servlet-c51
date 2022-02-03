@@ -1,7 +1,7 @@
 package by.tms.servlet.Web.servlet;
 
 import by.tms.servlet.Web.Constants;
-import history.InMemoryCalculatorHistory;
+import storage.InMemoryCalculatorHistory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

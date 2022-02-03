@@ -1,4 +1,4 @@
-package history;
+package storage;
 
 import java.util.HashMap;
 
@@ -9,7 +9,7 @@ public class InMemoryCalculatorHistory implements CalculatorHistory{
     public void addElementHistory1(String login, String result){
         if (calculatorHistory.containsKey(login)){
             String oldHistory = calculatorHistory.get(login);
-            String newHistory = oldHistory + "<br>" + result + "<br>";
+            String newHistory = oldHistory + "<br>" + result;
             calculatorHistory.put(login, newHistory);
         } else {
             calculatorHistory.put(login, result);

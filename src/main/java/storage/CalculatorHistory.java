@@ -1,4 +1,4 @@
-package history;
+package storage;
 
 public interface CalculatorHistory {
     void addElementHistory1(String login, String result);
