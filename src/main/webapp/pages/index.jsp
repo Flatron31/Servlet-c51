@@ -16,7 +16,9 @@
 <c:if test="${sessionScope.login != null}">
     <a href="/calculator">Calculator</a>
     <a href="/history_calculator">History</a>
-    <a href="/logout">Logout</a>
+    <form action="/logout" method="post">
+        <button>Logout</button>
+    </form>
 </c:if>
 
 <c:if test="${sessionScope.login == null}">

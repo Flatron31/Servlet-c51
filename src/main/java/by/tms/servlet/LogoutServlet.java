@@ -1,6 +1,7 @@
 package by.tms.servlet;
 
 import entity.Constants;
+import service.CalculatorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,14 +15,18 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CalculatorService calculatorService = new CalculatorService();
         HttpSession session = req.getSession();
+        String login = (String) session.getAttribute("login");
         if (session.getAttribute("login") != null) {
+            calculatorService.deleteHistory(login);
             session.invalidate();
-            req.setAttribute("messageLogout", "Logout successful");
-            req.getServletContext().getRequestDispatcher(Constants.LOGOUT_JSP).forward(req, resp);
-        } else {
-            req.setAttribute("messageUserError", "User is not authorized");
-            req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, resp);
         }
+        resp.sendRedirect(Constants.HOME_LINK);
     }
 }

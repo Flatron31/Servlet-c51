@@ -39,6 +39,10 @@ public class InMemoryCalculatorHistory {
         return "History is empty";
     }
 
+    public void deleteHistory(String login){
+        calculatorHistory.remove(login);
+    }
+
 
 
 
