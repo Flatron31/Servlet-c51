@@ -2,14 +2,14 @@ package history;
 
 import java.util.HashMap;
 
-public class InMemoryCalculatorHistory {
+public class InMemoryCalculatorHistory implements CalculatorHistory{
 //    public static ArrayList<String> historyCalculator = new ArrayList<>();
     public static HashMap<String, String> calculatorHistory = new HashMap<>();
 
     public void addElementHistory1(String login, String result){
         if (calculatorHistory.containsKey(login)){
             String oldHistory = calculatorHistory.get(login);
-            String newHistory = oldHistory + result + "<br>";
+            String newHistory = oldHistory + "<br>" + result + "<br>";
             calculatorHistory.put(login, newHistory);
         } else {
             calculatorHistory.put(login, result);

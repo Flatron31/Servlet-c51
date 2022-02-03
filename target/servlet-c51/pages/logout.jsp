@@ -12,10 +12,6 @@
 </head>
 <body>
 <a href="/">Home</a>
-<br>
-
-<p>${requestScope.messageLogout}</p>
-
 
 </body>
 </html>

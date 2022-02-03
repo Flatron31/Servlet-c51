@@ -1,6 +1,6 @@
-package by.tms.servlet;
+package by.tms.servlet.Web.servlet;
 
-import entity.Constants;
+import by.tms.servlet.Web.Constants;
 import entity.User;
 import history.InMemoryUserStorage;
 

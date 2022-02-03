@@ -1,6 +1,6 @@
-package filter;
+package by.tms.servlet.Web.filter;
 
-import entity.Constants;
+import by.tms.servlet.Web.Constants;
 import entity.User;
 import service.UserService;
 import validation.Validation;

@@ -1,6 +1,6 @@
-package filter;
+package by.tms.servlet.Web.filter;
 
-import entity.Constants;
+import by.tms.servlet.Web.Constants;
 import validation.Validation;
 
 import javax.servlet.FilterChain;

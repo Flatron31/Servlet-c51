@@ -1,4 +1,4 @@
-package entity;
+package by.tms.servlet.Web;
 
 public final class Constants {
     private Constants() {
@@ -9,8 +9,8 @@ public final class Constants {
     public static final String CALCULATOR_JSP = "/pages/calculator.jsp";
     public static final String HISTORY_JSP = "/pages/history.jsp";
     public static final String INDEX_JSP = "/pages/index.jsp";
-    public static final String LOGOUT_JSP = "/pages/logout.jsp";
     public static final String INFOERROR_JSP = "/pages/infoError.jsp";
+//    public static final String LOGOUT_JSP = "/pages/logout.jsp";
     // JSP
 
     public static final String AUTHORIZATION_LINK = "/authorization";
