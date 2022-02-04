@@ -1,7 +1,7 @@
-package by.tms.servlet.Web.filter;
+package by.tms.servlet.web.filter;
 
-import by.tms.servlet.Web.Constants;
-import by.tms.servlet.Web.Validation;
+import by.tms.servlet.web.Constants;
+import by.tms.servlet.web.Validation;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

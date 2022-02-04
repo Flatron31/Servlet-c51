@@ -1,6 +1,6 @@
-package by.tms.servlet.Web.servlet;
+package by.tms.servlet.web.servlet.calcul;
 
-import by.tms.servlet.Web.Constants;
+import by.tms.servlet.web.Constants;
 import service.CalculatorService;
 
 import javax.servlet.ServletException;

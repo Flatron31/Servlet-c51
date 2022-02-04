@@ -1,6 +1,6 @@
-package by.tms.servlet.Web.servlet;
+package by.tms.servlet.web.servlet.user;
 
-import by.tms.servlet.Web.Constants;
+import by.tms.servlet.web.Constants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
