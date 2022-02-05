@@ -15,19 +15,34 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+<%--<c:if test="${sessionScope.login != null}">--%>
+<%--    <a href="/calculator">Calculator</a>--%>
+<%--    <a href="/history_calculator">History</a>--%>
+<%--    <form action="/logout" method="post">--%>
+<%--        <button>Logout</button>--%>
+<%--    </form>--%>
+<%--</c:if>--%>
+
+<%--<c:if test="${sessionScope.login == null}">--%>
+<%--    <a href="/registration">Registration</a>--%>
+<%--    <a href="/authorization">Authorization</a>--%>
+<%--</c:if>--%>
+
+
 <c:if test="${sessionScope.login != null}">
-    <a href="/calculator">Calculator</a>
-    <a href="/history_calculator">History</a>
-    <form action="/logout" method="post">
-        <button>Logout</button>
-    </form>
+    <nav class="nav" style="background-color: lightblue">
+        <a class="nav-link" href="/calculator">Calculator</a>
+        <a class="nav-link" href="/history_calculator">History</a>
+
+
+        <form action="/logout" method="post">
+            <a class="nav-link" href="/logout">Logout</a>
+        </form>
+    </nav>
 </c:if>
 
-
-
-
 <c:if test="${sessionScope.login == null}">
-    <nav class="nav">
+    <nav class="nav" style="background-color: lightblue">
         <a class="nav-link" href="/registration">Registration</a>
         <a class="nav-link" href="/authorization">Authorization</a>
     </nav>
@@ -36,15 +51,6 @@
 
 
 
-
-<%--<c:if test="${sessionScope.login != null}">--%>
-<%--    <nav class="nav">--%>
-<%--        <a class="nav-link calculator" aria-current="page" href="/calculator">Calculator</a>--%>
-<%--        <a class="nav-link" href="/history_calculator">History</a>--%>
-<%--        <a class="nav-link" href="#">Link</a>--%>
-<%--        <a class="nav-link disabled">Disabled</a>--%>
-<%--    </nav>--%>
-<%--</c:if>--%>
 
 
 
