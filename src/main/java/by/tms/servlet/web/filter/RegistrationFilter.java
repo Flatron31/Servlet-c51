@@ -1,7 +1,7 @@
 package by.tms.servlet.web.filter;
 
 import by.tms.servlet.web.Constants;
-import by.tms.servlet.web.Validation;
+import by.tms.servlet.web.ParametrValidator;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ public class RegistrationFilter extends HttpFilter {
             String name = req.getParameter("name");
             String login = req.getParameter("login");
             String password = req.getParameter("password");
-            Validation validation = new Validation();
+            ParametrValidator validation = new ParametrValidator();
             if (!validation.isNull(name, password, login) && !validation.isEmptyString(name, password, login)) {
                 chain.doFilter(req, res);
             } else {

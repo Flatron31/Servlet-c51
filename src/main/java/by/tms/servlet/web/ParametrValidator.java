@@ -1,6 +1,6 @@
 package by.tms.servlet.web;
 
-public class Validation {
+public class ParametrValidator {
 
     public boolean isNumber(String str) {
         try {

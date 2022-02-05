@@ -3,7 +3,7 @@ package by.tms.servlet.web.filter;
 import by.tms.servlet.web.Constants;
 import entity.User;
 import service.UserService;
-import by.tms.servlet.web.Validation;
+import by.tms.servlet.web.ParametrValidator;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -30,7 +30,7 @@ public class CalculatorFilter extends HttpFilter {
         }
 
         if (req.getMethod().equalsIgnoreCase("POST")) {
-            Validation validation = new Validation();
+            ParametrValidator validation = new ParametrValidator();
             String value1 = req.getParameter("value1");
             String value2 = req.getParameter("value2");
             String action = req.getParameter("operation");

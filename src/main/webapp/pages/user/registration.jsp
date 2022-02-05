@@ -11,7 +11,13 @@
 <html>
 <head>
     <title>Registration</title>
+<%--    <style>--%>
+<%--        button {--%>
+<%--            color: aqua;--%>
+<%--            background-color: chartreuse;--%>
+<%--        }--%>
 
+<%--    </style>--%>
 </head>
 <body>
 <a href="/">Home</a>
