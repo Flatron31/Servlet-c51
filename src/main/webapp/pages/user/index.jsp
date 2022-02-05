@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 <c:if test="${sessionScope.login != null}">
@@ -21,9 +23,30 @@
     </form>
 </c:if>
 
+
+
+
 <c:if test="${sessionScope.login == null}">
-    <a href="/registration">Registration</a>
-    <a href="/authorization">Authorization</a>
+    <nav class="nav">
+        <a class="nav-link" href="/registration">Registration</a>
+        <a class="nav-link" href="/authorization">Authorization</a>
+    </nav>
 </c:if>
+
+
+
+
+
+<%--<c:if test="${sessionScope.login != null}">--%>
+<%--    <nav class="nav">--%>
+<%--        <a class="nav-link calculator" aria-current="page" href="/calculator">Calculator</a>--%>
+<%--        <a class="nav-link" href="/history_calculator">History</a>--%>
+<%--        <a class="nav-link" href="#">Link</a>--%>
+<%--        <a class="nav-link disabled">Disabled</a>--%>
+<%--    </nav>--%>
+<%--</c:if>--%>
+
+
+
 </body>
 </html>

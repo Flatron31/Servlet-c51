@@ -30,16 +30,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-5">
-            <form>
+            <form action="/authorization" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Login</label>
-                    <input type="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="login" class="form-label">Login</label>
+                    <input type="text" name="login" class="form-control" id="login">
+                    ${requestScope.message1}
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="text" name="password" class="form-control" id="password">
+                    ${requestScope.message}
                 </div>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-info">Submit</button>
+                ${requestScope.error}
             </form>
         </div>
     </div>
