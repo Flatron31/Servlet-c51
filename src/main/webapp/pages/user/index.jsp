@@ -28,17 +28,49 @@
 <%--    <a href="/authorization">Authorization</a>--%>
 <%--</c:if>--%>
 
-
+<%--        --%>
+<%--        <form action="/history_calculator">--%>
+<%--            <button type="button" class="btn btn-primary">Нistory</button>--%>
+<%--            <button type="submit" class="btn btn-primary" style="background-color: slateblue">Нistory</button>--%>
+<%--        </form>--%>
+<%--        <form action="/logout" method="post">--%>
+<%--            <button type="submit" class="btn btn-primary" style="background-color: slateblue">Logout</button>--%>
+<%--        </form>--%>
 <c:if test="${sessionScope.login != null}">
     <nav class="nav" style="background-color: lightblue">
-        <a class="nav-link" href="/calculator">Calculator</a>
-        <a class="nav-link" href="/history_calculator">History</a>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="nav-link" href="/history_calculator">Нistory</a>
 
-
-        <form action="/logout" method="post">
-            <a class="nav-link" href="/logout">Logout</a>
-        </form>
+            <form action="/logout" method="post">
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
+        </div>
     </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-4">
+                <form action="/calculator" method="post">
+                    <div class="mb-3">
+                        <input type="text" name="value1" placeholder="Value1" class="form-control" pattern="[+-]?([0-9]*[.])?[0-9]+" required>
+                    </div>
+                    <select class="form-select mb-3" name="operation" required>
+                        <option disabled selected>Choose operation</option>
+                        <option value="sum">+</option>
+                        <option value="div">/</option>
+                        <option value="dif">-</option>
+                        <option value="mult">*</option>
+                    </select>
+                    <div class="mb-3">
+                        <input type="text" name="value2" placeholder="Value2"class="form-control" pattern="[+-]?([0-9]*[.])?[0-9]+" required>
+                    </div>
+                        ${requestScope.messageNull}
+                        ${requestScope.messageEmpty}
+                        ${requestScope.messageNaN}
+                    <button type="submit" class="btn btn-primary">Result</button> ${requestScope.result}
+                </form>
+            </div>
+        </div>
+    </div>
 </c:if>
 
 <c:if test="${sessionScope.login == null}">

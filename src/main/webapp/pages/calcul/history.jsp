@@ -11,9 +11,12 @@
     <title>History</title>
 </head>
 <body>
-<a href="/">Home</a>
-<br>
-    <p>History:</p>
+<nav class="nav" style="background-color: lightblue">
+    <h1>History:</h1>
+</nav>
+<%--<a href="/">Home</a>--%>
+<%--<br>--%>
+
     ${requestScope.history}
 </body>
 </html>

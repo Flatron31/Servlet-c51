@@ -17,7 +17,8 @@ public class CalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
+        //req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req, resp);
 
     }
 
@@ -30,6 +31,7 @@ public class CalculatorServlet extends HttpServlet {
         String login = (String) session.getAttribute("login");
         String result = calculatorService.getResultAction(value1, value2, operation, login);
         req.setAttribute("result", result);
-        req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
+        //req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, resp);
+        req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req, resp);
     }
 }
