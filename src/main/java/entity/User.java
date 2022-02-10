@@ -4,20 +4,20 @@ public class User {
     private String login;
     private String password;
     private String name;
-    private String authorizationSessionID;
+    private int idUser;
 
     public User() {
     }
 
-    public User(String name, String login, String password, String authorizationSessionID) {
+    public User(String name, String login, String password, int idUser) {
         this.name = name;
         this.login = login;
         this.password = password;
-        this.authorizationSessionID = authorizationSessionID;
+        this.idUser = idUser;
     }
 
-    public void setAuthorizationSessionID(String authorizationSessionID) {
-        this.authorizationSessionID = authorizationSessionID;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public User(String name, String login, String password) {
@@ -26,8 +26,8 @@ public class User {
         this.password = password;
     }
 
-    public String getAuthorizationSessionID() {
-        return authorizationSessionID;
+    public int getIdUser() {
+        return idUser;
     }
 
     public String getLogin() {

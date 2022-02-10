@@ -2,7 +2,7 @@ package by.tms.servlet.web.servlet.user;
 
 import by.tms.servlet.web.Constants;
 import entity.User;
-import storage.DBRepository;
+import service.UserService;
 import storage.InMemoryUserStorage;
 
 import javax.servlet.ServletException;
@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = Constants.REGISTRATION_LINK, name = "RegistrationServlet")
@@ -37,10 +36,19 @@ public class RegistrationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
-        DBRepository dbRepository = new DBRepository();
-        HttpSession session = req.getSession();
-        inMemoryUserStorage.addUser(new User(name, login, password, session.getId()));
-        dbRepository.addUser(new User(name, login, password));
-        resp.sendRedirect(Constants.HOME_LINK);
+        UserService userService = new UserService();
+
+        // DB
+        User user = new User(name, login, password);
+        if (userService.getUserDB(login) == null){
+            userService.addUser(user);
+            resp.sendRedirect(Constants.HOME_LINK);
+        }else {
+            resp.sendRedirect(Constants.REGISTRATION_JSP);
+        }
+        //
+
+        inMemoryUserStorage.addUser(new User(name, login, password));
+        //resp.sendRedirect(Constants.HOME_LINK);
     }
 }

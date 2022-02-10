@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
 @WebServlet(urlPatterns = Constants.AUTHORIZATION_LINK, name = "AuthorizationServlet")
 public class AuthorizationServlet extends HttpServlet {
     @Override
@@ -25,12 +24,11 @@ public class AuthorizationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         UserService userService = new UserService();
-        User user = userService.getUser(login);
+        User user = userService.getUserDB(login);
         HttpSession session = req.getSession();
         if (userService.isCheckUser(user)) {
             if (password.equals(user.getPassword())) {
                 session.setAttribute("login", login);
-                user.setAuthorizationSessionID(session.getId());
                 resp.sendRedirect(Constants.HOME_LINK);
             } else {
                 req.setAttribute("message", "Wrong password");
@@ -40,5 +38,6 @@ public class AuthorizationServlet extends HttpServlet {
             req.setAttribute("message1", "User is not found");
             req.getServletContext().getRequestDispatcher(Constants.AUTHORIZATION_JSP).forward(req, resp);
         }
+
     }
 }

@@ -19,11 +19,12 @@ public class HistoryFilter extends HttpFilter {
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpSession session = req.getSession();
         String login = (String) session.getAttribute("login");
-        UserService userService = new UserService();
-        User user = userService.getUser(login);
-
-        if (req.getMethod().equalsIgnoreCase("GET")) {
-            if (user.getAuthorizationSessionID() == null | !user.getAuthorizationSessionID().equals(session.getId())) {
+//        UserService userService = new UserService();
+//        User user = userService.getUserDB(login);
+        if (req.getMethod().equals("GET")) {
+            System.out.println(session.getAttribute("login") == null);
+            System.out.println(login.equals(session.getId()));
+            if (session.getAttribute("login") == null) {
                 req.setAttribute("messageUserError", "User is not authorized");
                 req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, res);
             }

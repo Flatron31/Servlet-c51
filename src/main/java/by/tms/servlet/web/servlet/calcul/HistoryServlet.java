@@ -1,7 +1,7 @@
 package by.tms.servlet.web.servlet.calcul;
 
 import by.tms.servlet.web.Constants;
-import storage.InMemoryCalculatorHistory;
+import service.CalculatorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +13,13 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = Constants.HISTORY_CALCULATOR_LINK, name = "HistoryServlet")
 public class HistoryServlet extends HttpServlet {
-    private InMemoryCalculatorHistory calculatorHistory = new InMemoryCalculatorHistory();
+    private CalculatorService calculatorService = new CalculatorService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String login = (String) session.getAttribute("login");
-        req.setAttribute("history", calculatorHistory.printHistory(login));
+        req.setAttribute("history", calculatorService.printHistory(login));
         req.getServletContext().getRequestDispatcher(Constants.HISTORY_JSP).forward(req, resp);
     }
 }

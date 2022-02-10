@@ -1,23 +1,27 @@
 package service;
 
 import entity.User;
-import storage.DBRepository;
+import storage.InMemoryDBRepository;
 import storage.InMemoryUserStorage;
 
 public class UserService {
     private InMemoryUserStorage inMemoryUserStorage = new InMemoryUserStorage();
-    private DBRepository dbRepository = new DBRepository();
-
-    public User getUser(String login) {
-        return inMemoryUserStorage.getUser(login);
-    }
-    // Optional<User>
+    private InMemoryDBRepository dbRepository = new InMemoryDBRepository();
 
     public boolean isCheckUser(User user){
         if (user == null){
             return false;
         }
         return true;
+    }
+
+    // изменение под DB в работе------------------
+    public User getUserDB(String login){
+       return  dbRepository.getUser(login);
+    }
+
+    public void addUser(User user){
+        dbRepository.addUser(user);
     }
 
 

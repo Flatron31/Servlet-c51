@@ -1,8 +1,6 @@
 package by.tms.servlet.web.filter;
 
 import by.tms.servlet.web.Constants;
-import entity.User;
-import service.UserService;
 import by.tms.servlet.web.ParametrValidator;
 
 import javax.servlet.FilterChain;
@@ -20,15 +18,12 @@ public class CalculatorFilter extends HttpFilter {
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpSession session = req.getSession();
         String login = (String) session.getAttribute("login");
-        UserService userService = new UserService();
-        User user = userService.getUser(login);
         if (req.getMethod().equalsIgnoreCase("GET")) {
-             if (user.getAuthorizationSessionID() == null | !user.getAuthorizationSessionID().equals(session.getId()) ) {
+             if (session.getAttribute("login") == null) {
                 req.setAttribute("messageUserError", "User is not authorized");
                 req.getServletContext().getRequestDispatcher(Constants.INFOERROR_JSP).forward(req, res);
             }
         }
-
         if (req.getMethod().equalsIgnoreCase("POST")) {
             ParametrValidator validation = new ParametrValidator();
             String value1 = req.getParameter("value1");
@@ -37,15 +32,15 @@ public class CalculatorFilter extends HttpFilter {
 
             if (validation.isNull(value1, value2, action)) {
                 req.setAttribute("messageNull", "Value is null");
-                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req, res);
             }
             if (validation.isEmptyString(value1, value2, action)) {
                 req.setAttribute("messageEmpty", "Value is empty");
-                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req, res);
             }
             if (!validation.isNumber(value1) || !validation.isNumber(value2)) {
                 req.setAttribute("messageNaN", "NaN");
-                req.getServletContext().getRequestDispatcher(Constants.CALCULATOR_JSP).forward(req, res);
+                req.getServletContext().getRequestDispatcher(Constants.INDEX_JSP).forward(req, res);
             }
         }
         chain.doFilter(req, res);
