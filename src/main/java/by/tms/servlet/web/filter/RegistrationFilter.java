@@ -19,8 +19,8 @@ public class RegistrationFilter extends HttpFilter {
             String name = req.getParameter("name");
             String login = req.getParameter("login");
             String password = req.getParameter("password");
-            ParametrValidator validation = new ParametrValidator();
-            if (!validation.isNull(name, password, login) && !validation.isEmptyString(name, password, login)) {
+            ParametrValidator parametrValidator = new ParametrValidator();
+            if (!parametrValidator.isNull(name, password, login) && !parametrValidator.isEmptyString(name, password, login)) {
                 chain.doFilter(req, res);
             } else {
                 req.setAttribute("messageErrorRegistration", "User not created");

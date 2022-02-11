@@ -1,6 +1,7 @@
 package service;
 
 import storage.InMemoryDBRepository;
+
 import java.util.List;
 
 public class CalculatorService {
@@ -8,8 +9,8 @@ public class CalculatorService {
 
     public String getResultOperation(String value1, String value2, String operation, String login) {
         String resultOperationCalculator = getResultOperationCalculator(value1, value2, operation);
-        String result =  value1 + " " + operation + " " + value2 + " = " + resultOperationCalculator;
-        dbRepository.addElementHistory1(login,resultOperationCalculator);
+        String result = value1 + " " + operation + " " + value2 + " = " + resultOperationCalculator;
+        dbRepository.addElementHistory1(login, resultOperationCalculator);
         return result;
     }
 
@@ -38,7 +39,7 @@ public class CalculatorService {
     }
 
     public void deleteHistory(String login) {
-       dbRepository.deleteHistory(login);
+        dbRepository.deleteHistory(login);
     }
 
     public List<String> printHistory(String login) {

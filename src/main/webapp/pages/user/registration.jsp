@@ -54,6 +54,7 @@
                 </div>
                 <button type="submit" class="btn btn-secondary">Registration</button>
                 ${requestScope.messageErrorRegistration}
+                ${requestScope.ErrorUserExist}
             </form>
         </div>
     </div>
