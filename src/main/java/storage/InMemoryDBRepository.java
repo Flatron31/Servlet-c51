@@ -98,6 +98,27 @@ public class InMemoryDBRepository implements CalculatorHistory, UserStorage {
         return null;
     }
 
+    public List<User> getUsers() {
+        return  null;
+    }
+
+//        List<String> stringList = new ArrayList<>();
+//        try {
+//            try (Connection connection = DriverManager.getConnection(url, username, password)) {
+//                PreparedStatement preparedStatement = connection.prepareStatement(
+//                        "SELECT result FROM history WHERE login_user = ?");
+//                preparedStatement.setString(1, login);
+//                ResultSet resultSet = preparedStatement.executeQuery();
+//                while (resultSet.next()) {
+//                    stringList.add(resultSet.getString(1));
+//                }
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return stringList;
+//    }
+
 //    public int getIdUser(String login) {
 //        int idUser = -1;
 //        try {
